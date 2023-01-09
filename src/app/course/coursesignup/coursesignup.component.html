@@ -1,0 +1,107 @@
+<nav class="navigation">
+	<div class="container">
+		<ul class="nav">
+
+			<!-- <li routerLink="/universityhomepage" routerLinkActive="active"> Home</li> -->
+
+			<!-- <div class="dropdown">
+          <button class="dropbtn">Explore</button>
+          <div class="dropdown-content">
+            
+            <a routerLink="/courselist">Courses Available</a>
+           
+           
+          </div>
+        </div> -->
+			<li onclick="history.back()">back</li>
+			<!-- <li routerLink="/universityprofile" routerLinkActive="active">Profile</li>
+        <li routerLink="/welcome" routerLinkActive="active" (click)="logOut()">Logout</li> -->
+		</ul>
+	</div>
+</nav>
+
+<body>
+
+	<div class="form_wrapper">
+
+		<div class="form_container">
+			<div class="title_container">
+				<h2>Create Course</h2>
+			</div>
+
+			<div class="row clearfix">
+				<div class="">
+					<form id='register-form' autocomplete="off" [formGroup]="courseForm" (ngSubmit)="onSubmit1()">
+						<div class="row clearfix">
+
+							<div class="col_half">
+
+								<div class="input_field">
+									<label>Enter Course Code</label>
+									<input type="text" (keypress)="OnlyNumbersAllowed($event)" name="courseCode" placeholder="ex. 101"
+										formControlName="courseCode">
+								</div>
+							</div>
+
+
+							<div class="col_half">
+								<div class="input_field">
+									<label>Enter Course Name</label>
+									<input type="text" (keypress)="OnlyLettersAllowed($event)" name="courseName" placeholder="ex. Data Science"
+										formControlName="courseName">
+								</div>
+							</div>
+
+
+
+							<div class="col_half">
+								<div class="input_field">
+									<label>Enter Available Seats</label>
+									<input type="text" (keypress)="OnlyNumbersAllowed($event)" name="courseName" placeholder="ex. 20"
+										formControlName="seatsAvailable">
+								</div>
+							</div>
+
+
+
+
+						</div>
+
+						<div class="enum1">
+							<div class="duration">
+								<label for="courseDuration">Choose Course Duration</label>
+								<select id="courseDuration" name="courseDuration" formControlName="courseDuration">
+									<option value="ONE">One Year</option>
+									<option value="TWO">Two Years</option>
+									<option value="THREE">Three Years</option>
+								</select>
+
+							</div>
+
+
+						</div>
+
+						<div class="enum2">
+							<div class="degree">
+								<label for="degreeType">Choose Degree Type</label>
+								<select id="degreeType" name="degreeType" formControlName="degreeType">
+									<option value="PGD">Pg.Diploma</option>
+									<option value="MASTERS">Masters</option>
+									<option value="MSC">M.Sc</option>
+								</select>
+
+							</div>
+						</div>
+
+
+
+
+
+						<input id='submit-data' class="btn btn-info" type="submit" style="padding-bottom: 40px;"
+							[disabled]="courseForm.invalid" value="Add Course" />
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>

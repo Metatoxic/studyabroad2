@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400, 600' rel='stylesheet' type='text/css'>
+ 
+  </head>
+  
+  <nav class="navigation">
+    <div class="container">
+      <ul class="nav">
+  
+        <!-- <li routerLink="/studenthomepage" routerLinkActive="active"> Home</li> -->
+       
+        <div class="dropdown">
+          <button class="dropbtn">Explore</button>
+          <div class="dropdown-content">
+            <a routerLink="/coursesignup">Add Course</a>
+            <!-- <a routerLink="/courselist">Courses Available</a> -->
+            <a  (click)="universityCourseList(university.instituteCode)"> Courses</a>
+            <a routerLink="/enrolledlist/{{university.instituteCode}}">Enrolled Students</a>
+            <!-- <button routerLink="/enrolledlist/{{1111}}" routerLinkActive="active">GES</button> -->
+            <!-- <a href="#">Link 3</a> -->
+          </div>
+        </div>
+        <li routerLink="/universityprofile" routerLinkActive="active">Profile</li>
+        <li routerLink="/university" routerLinkActive="active" (click)="logOut()">Logout</li>
+      </ul>
+    </div>
+  </nav>
+
+    <body> 
+      
+    <div class="jumbotron">
+      <div class="container">  
+        <div class="main">
+           
+            <div class="container-1">
+                <h1 style="font-size: 50px;">Welcome {{university.universityName}}</h1>
+               
+            </div>
+         
+            
+              <a href="/coursesignup" class="btn-main">Get Started</a>
+          
+            
+         
+        </div>
+      </div>
+    </div>
+
+  
+   
+  </body>
+</html>

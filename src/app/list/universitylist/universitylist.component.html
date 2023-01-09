@@ -1,0 +1,56 @@
+<html>
+  <nav class="navigation" style=" background-color: black;">
+    <div class="container" style="max-width: 1550px;margin: 0 auto;padding: 0 10px;">
+      <ul class="nav" style="justify-content: right;">
+         <div class="form-outline" style="margin-top: -10px;margin-bottom: -10px;margin-right: 1px;">
+            <input type="search" id="form1" class="form-control" placeholder="search" [(ngModel)]="searchName" name="search"/>
+         </div>
+        <!-- <li routerLink="/studenthomepage" routerLinkActive="active"> Home</li> -->
+        <li onclick="history.back()">back</li>
+
+      </ul>
+    </div>
+  </nav>
+  <body>
+   
+
+    <div *ngIf="universities==null">
+      <h1>NO UNIVERSITIES FOUND</h1>
+  </div>
+
+  <div *ngIf="universities!=null">
+
+  
+<section id="gallery">
+  <h1 style="text-align: center; margin-bottom: 20px;">UNIVERSITY LIST</h1>
+  <div class="row">
+   
+  </div>
+  <div class="container">
+    <div class="row" >
+    <div class="col-lg-4 mb-4" *ngFor="let university of universities | universitysearch:searchName">
+      <div class="card">
+        <!-- <img src="unicard.jpg" alt="Uni Logo" width="100px" height="95px" style="border-radius: 30%;"> -->
+        <div class="card-body">
+           <h4 class="card-title">{{university.universityName}}</h4>
+          <p class="card-text"  style="font-size: larger;">{{university.country}} - {{university.state}}</p>
+          <p class="card-text" style="font-weight: 600;">Minimum Requirements* <br>CGPA : {{university.minimumCgpa}} / IELTS : {{university.minimumIeltsScore}} / GRE : {{university.minimumGreScore}}</p>
+         
+       
+        <button value="{{university.instituteCode}}" class="btn btn-success" (click)="universityCourseList2(university.instituteCode)" > Courses</button>
+        
+      </div>
+     </div>
+    </div>
+ 
+   
+  </div>
+</div>
+</section> 
+   
+  </div>
+  </body>
+</html>
+
+
+ 

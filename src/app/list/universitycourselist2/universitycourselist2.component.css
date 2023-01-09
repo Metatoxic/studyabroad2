@@ -1,0 +1,72 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+background-image: url(../../coursebg2.jpg);
+background-size: cover;
+height: 604px;
+}
+
+.navigation {
+  background-color: black;
+  justify-items: right;
+
+}
+
+.nav {
+  justify-content: right;
+}
+
+
+.nav {
+  margin: 0;
+  padding: 16px 0;
+}
+
+.nav li {
+  display: inline;
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+
+.main h1 {
+  background-color: rgba(109, 13, 177, 0.87);
+  color: white;
+
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 65px;
+
+  margin-top: 0;
+  margin-bottom: 170px;
+  text-transform: uppercase;
+}
+
+.container-fluid li:hover {
+  color: rgba(133, 25, 209, 0.87);
+  transition-delay: 0.5ms;
+  cursor: pointer;
+  font-weight: bold;
+  transform: scale(1.25);
+}
+
+.box {
+  width: 90%;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.007);
+  padding: 25px;
+
+  border-radius: 20px/50px;
+  background-clip: padding-box;
+  text-align: center;
+}
+
+h1{
+  color: white;
+}

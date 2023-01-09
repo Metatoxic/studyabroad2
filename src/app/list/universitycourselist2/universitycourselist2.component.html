@@ -1,0 +1,50 @@
+<html>
+<nav class="navigation">
+  <div class="container-fluid">
+    <ul class="nav">
+      <div class="form-outline"  style="margin-top: -10px;margin-bottom: -10px;margin-right: 10px;">
+        <input type="search" id="form1" class="form-control" placeholder="search" [(ngModel)]="searchName" name="search"/>
+        
+      </div>
+      <li onclick="history.back()">back</li>
+     
+    </ul>
+  </div>
+</nav>
+  <body>
+    <div *ngIf="courses==null">
+      <h1>NO COURSES AVAILABLE</h1>
+  </div>
+
+  <div *ngIf="courses!=null">
+
+  
+<section id="gallery">
+  <h1 style="text-align: center;margin-bottom: 20px;">COURSE LIST</h1>
+  <div class="row">
+   
+  </div>
+  <div class="container">
+    <div class="row" >
+    <div class="col-lg-4 mb-4" *ngFor="let course of courses | coursesearch:searchName ">
+    <div class="card" >
+      <!-- <img src="https://images.unsplash.com/photo-1477862096227-3a1bb3b08330?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60" alt="" class="card-img-top"> -->
+      <div class="card-body">
+        <h5 class="card-title">{{course.courseName}}</h5>
+        <p class="card-text">{{course.courseCode}}</p>
+        <p class="card-text">{{course.degreeType}}  </p>
+        <p class="card-text">{{course.courseDuration}}-Year/Years</p>
+        <button  (click) = "apply(course.courseCode)"class = "btn btn-primary"> Apply</button>
+        
+      </div>
+     </div>
+    </div>
+ 
+   
+  </div>
+</div>
+</section> 
+   
+  </div>
+  </body>
+</html>

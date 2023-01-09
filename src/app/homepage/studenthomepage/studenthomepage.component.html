@@ -1,0 +1,70 @@
+<html>
+
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400, 600' rel='stylesheet' type='text/css'>
+</head>
+
+<nav class="navigation">
+  <div class="container">
+    <ul class="nav">
+
+      <!-- <li routerLink="/studenthomepage" routerLinkActive="active"> Home</li> -->
+      <li  routerLink="/starlist/{{aadhaarNo}}" routerLinkActive="active" > Star Match</li>
+      <div class="dropdown">
+      
+        <button class="dropbtn">Explore</button>
+        <div class="dropdown-content">
+          <a routerLink="/universitylist" routerLinkActive="active">All Universities</a>
+          <!-- <a routerLink="/courselist">All Courses</a> -->
+          <!-- <a href="#">Link 3</a> -->
+        </div>
+      </div>
+      <li routerLink="/studentprofile" routerLinkActive="active">Profile</li>
+      <li routerLink="/student" routerLinkActive="active" (click)="logOut()">Logout</li>
+    </ul>
+  </div>
+</nav>
+
+<body>
+  <div class="home">
+    <div class="container">
+      <div class="main">
+
+        <div class="container-1">
+          <h1 style="font-size: 50px;">Welcome {{student.firstName}}</h1>
+
+          <!-- <button routerLink="/universitylist" routerLinkActive="active">List of Universities</button> -->
+
+        </div>
+
+        <!-- <a routerLink="/universitylist" routerLinkActive="active"  class="btn-main">Get Started</a> -->
+
+
+        <div class="box">
+          <a class="button" href="/studenthomepage#popup1">Lets Start</a>
+        </div>
+
+        <div id="popup1" class="overlay">
+          <div class="popup">
+            <h2>Choose a Degree</h2>
+            <a class="close" href="/studenthomepage#home">&times;</a>
+            <div class="btn-group">
+              <button value="PGD" routerLink="/degreetypefilter/{{type}}" routerLinkActive="active">PG.Diploma</button>
+              <button value="MASTERS" routerLink="/degreetypefilter/{{type1}}" routerLinkActive="active">Masters</button>
+              <button value="MSC" routerLink="/degreetypefilter/{{type2}}" routerLinkActive="active">M.Sc</button>
+            </div>
+            <!-- <input type="button" value=PGD routerLink="/degreetype" routerLinkActive="active">
+            <input type="button" value="MASTERS" routerLink="/degreetype" routerLinkActive="active">
+            <input type="button" value="PHD" routerLink="/degreetype" routerLinkActive="active"> -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+</body>
+
+</html>

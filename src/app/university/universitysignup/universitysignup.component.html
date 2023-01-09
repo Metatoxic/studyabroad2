@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+
+  <form [formGroup]="universities" (submit)="onSubmit()">
+    <div class="container">
+      <h1>Sign Up</h1>
+      <p>Please fill in this form to create an account.</p>
+      <hr>
+
+      <label for="instituteCode"><b>Institute Code</b></label>
+      <input type="text" (keypress)="OnlyNumbersAllowed($event)" pattern="([0-9]{4})" placeholder="Enter instituteCode" name="instituteCode" id="instituteCode" required
+        formControlName="instituteCode">
+
+        <div  *ngIf="universities.controls['instituteCode'].invalid && (universities.controls['instituteCode'].dirty || universities.controls['instituteCode'].touched)" class="alert">
+          <div *ngIf="universities.controls['instituteCode'].errors" style="color: red;">
+          *Please Enter Your Four Digit Institute Code 
+        </div>
+      </div>
+
+      <label for="universityName"><b>University Name</b></label>
+      <input type="text" (keypress)="OnlyLettersAllowed($event)" pattern="([a-zA-z_ ]{3,50})" placeholder="Enter universityName" name="universityName" id="universityName" required 
+      formControlName="universityName">
+
+      <div  *ngIf="universities.controls['universityName'].invalid && (universities.controls['universityName'].dirty || universities.controls['universityName'].touched)" class="alert">
+        <div *ngIf="universities.controls['universityName'].errors" style="color: red;">
+        *Please Enter Your University Name 
+      </div>
+    </div>
+
+      <label for="country"><b>Country</b></label>
+      <input type="text" (keypress)="OnlyLettersAllowed($event)" pattern="([a-zA-z_ ]{1,50})" placeholder="Enter country" name="country" id="country" required 
+      formControlName="country">
+
+      <div  *ngIf="universities.controls['country'].invalid && (universities.controls['country'].dirty || universities.controls['country'].touched)" class="alert">
+        <div *ngIf="universities.controls['country'].errors" style="color: red;">
+        *Please Enter Your Country
+      </div>
+    </div>
+
+
+      <label for="state"><b>State</b></label>
+      <input type="text" (keypress)="OnlyLettersAllowed($event)" pattern="([a-zA-z_ ]{1,50})"  placeholder="Enter state" name="state" id="state" required 
+      formControlName="state">
+
+      <div  *ngIf="universities.controls['state'].invalid && (universities.controls['state'].dirty || universities.controls['state'].touched)" class="alert">
+        <div *ngIf="universities.controls['state'].errors" style="color: red;">
+        *Please Enter Your State
+      </div>
+    </div>
+
+      <label for="minimumCgpa"><b>Minimum CGPA</b></label>
+      <input type="number" (keypress)="OnlyNumbersAllowed2($event)" placeholder="Enter Minimum CGPA" name="minimumCgpa" id="minimumCgpa" required
+        formControlName="minimumCgpa">
+
+        <div  *ngIf="universities.controls['minimumCgpa'].invalid && (universities.controls['minimumCgpa'].dirty || universities.controls['minimumCgpa'].touched)" class="alert">
+          <div *ngIf="universities.controls['minimumCgpa'].errors" style="color: red;">
+          *Please Enter Your Required Cgpa between 0-10
+        </div>
+      </div>
+
+      <label for="minimumIeltsScore"><b>Minimum IELTS Score</b></label>
+      <input type="number" (keypress)="OnlyNumbersAllowed2($event)" placeholder="Enter Minimum IELTS Score" name="minimumCgpa" id="minimumIeltsScore" required
+        formControlName="minimumIeltsScore">
+
+        
+        <div  *ngIf="universities.controls['minimumIeltsScore'].invalid && (universities.controls['minimumIeltsScore'].dirty || universities.controls['minimumIeltsScore'].touched)" class="alert">
+          <div *ngIf="universities.controls['minimumIeltsScore'].errors" style="color: red;">
+          *Please Enter Your Required Ielts Score between 0-9
+        </div>
+      </div>
+
+      <label for="minimumGreScore"><b>Minimum GRE Score</b></label>
+      <input type="number" (keypress)="OnlyNumbersAllowed($event)" placeholder="Enter Minimum GREScore" name="minimumGreScore" id="minimumGreScore" required
+        formControlName="minimumGreScore">
+
+        
+        <div  *ngIf="universities.controls['minimumGreScore'].invalid && (universities.controls['minimumGreScore'].dirty || universities.controls['minimumGreScore'].touched)" class="alert">
+          <div *ngIf="universities.controls['minimumGreScore'].errors" style="color: red;">
+          *Please Enter Your Required Gre Score between 0-360
+        </div>
+      </div>
+
+     
+     <label for="emailId"><b>Email Id </b></label>
+      <input type="email" pattern="(^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$)" placeholder="Enter Email Id" name="emailId" id="emailId" required 
+       formControlName="emailId">
+
+       <div  *ngIf="universities.controls['emailId'].invalid && (universities.controls['emailId'].dirty || universities.controls['emailId'].touched)" class="alert">
+        <div *ngIf="universities.controls['emailId'].errors" style="color: red;">
+        *Please Enter Your Email Id
+      </div>
+    </div>
+
+     <label for="password"><b>Password </b></label>
+      <input type="password" pattern="([A-Za-z0-9]{3,50})" placeholder="Enter password" name="password" id="password" required 
+       formControlName="password">
+
+       <div  *ngIf="universities.controls['password'].invalid && (universities.controls['password'].dirty || universities.controls['password'].touched)" class="alert">
+        <div *ngIf="universities.controls['password'].errors" style="color: red;">
+        *Please Enter Your Password
+      </div>
+    </div>
+
+
+
+      <button type="submit" class="registerbtn"  [disabled]="universities.invalid">Register</button>
+    </div>
+
+    <div class="container signin">
+      <p>Already have an account? <a routerLink="/university">Sign in</a>.</p>
+    </div>
+  </form>
+
+</body>
+
+</html>

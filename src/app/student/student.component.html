@@ -1,0 +1,40 @@
+<body>
+	<div class="box">
+		<form class="login-form"  [formGroup]="loginForm" (ngSubmit) = "onSubmit1()">
+			<h1>Student Login</h1>
+			<!-- <a routerLink="/university">university Login</a>  -->
+			
+			<input type="text" name="emailId" placeholder="emailId" required formControlName="emailId">
+
+			<div  *ngIf="loginForm.controls['emailId'].invalid && (loginForm.controls['emailId'].dirty || loginForm.controls['emailId'].touched)" class="alert">
+				<div *ngIf="loginForm.controls['emailId'].errors" style="color: red;">
+				*Please Enter Your Email Id
+			  </div>
+			</div>
+
+			<input type="password" name="password" placeholder="Password" required formControlName="password">
+		
+			<div  *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)" class="alert">
+				<div *ngIf="loginForm.controls['password'].errors" style="color: red;">
+				*Please Enter Your Password
+			  </div>
+			</div>
+            <!-- <input type="radio" value="abc" name="switch">University
+			<input type="radio" value="abc" name="switch">Student -->
+		
+            <input type="submit"  name="Login" [disabled]="loginForm.invalid" value="Login">
+
+			<div class="switchuniversity">
+				<h6>Not a Student ?<a routerLink="/university">University</a> </h6>
+			</div>
+
+			<div class="links">
+				
+				<a routerLink="/studentsignup">Sign Up</a>
+				<router-outlet></router-outlet>
+			</div>
+			
+		</form>
+		
+	</div>
+</body>

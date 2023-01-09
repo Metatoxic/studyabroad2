@@ -1,0 +1,346 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+
+}
+
+.navigation {
+  background-color: black;
+  justify-items: right;
+
+}
+
+.nav {
+  justify-content: right;
+}
+
+.container {
+  max-width: 1550px;
+  margin: 0 auto;
+  padding: 0 10px;
+
+}
+
+.home {
+  background: url(../../studenthome.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 604px;
+}
+
+.nav {
+  margin: 0;
+  padding: 16px 0;
+}
+
+.nav li {
+  display: inline;
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.nav a {
+  display: inline;
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-left: 10px;
+  margin-right: 10px;
+
+
+}
+
+.nav .btn {
+  display: inline;
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-top: -7px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.main {
+  position: relative;
+  top: 70px;
+  text-align: center;
+  padding-left: 450px;
+  padding-right: 450px;
+
+}
+
+.main h1 {
+  background-color: rgba(109, 13, 177, 0.685);
+  color: white;
+
+  font-family: 'Raleway', sans-serif;
+
+  font-weight: 600;
+  font-size: 65px;
+
+  margin-top: 0;
+  margin-bottom: 170px;
+  text-transform: uppercase;
+
+}
+
+
+
+.clearfix {
+  clear: both;
+}
+
+
+
+
+
+@media (max-width: 500px) {
+  .main h1 {
+    font-size: 50px;
+    padding: 0 40px;
+  }
+
+  .supporting .col {
+    width: 100%;
+  }
+
+  .box {
+    width: 90%;
+  }
+
+  .popup {
+    width: 70%;
+  }
+}
+
+.container li:hover {
+  color: rgba(133, 25, 209, 0.87);
+  transition-delay: 0.5ms;
+  cursor: pointer;
+  font-weight: bold;
+  transform: scale(1.25);
+  /* background-color: #3e8e41;
+  cursor: pointer; */
+  
+}
+
+
+
+/* aaaa */
+
+
+.box {
+  width: 90%;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.007);
+  padding: 25px;
+  /* border: 2px solid #fff; */
+  border-radius: 20px/50px;
+  background-clip: padding-box;
+  text-align: center;
+}
+
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+.popup .close:hover {
+  color: red;
+}
+
+.popup .content1 {
+  max-height: 30%;
+  overflow: auto;
+}
+
+.popup .content2 {
+  max-height: 30%;
+  overflow: auto;
+}
+
+.popup .content3 {
+  max-height: 30%;
+  overflow: auto;
+}
+
+
+/* w */
+
+.button {
+  background-color: rgba(0, 0, 0, 0.884);
+  color: rgba(121, 19, 194, 0.87);
+  font-size: 18px;
+  font-weight: 600;
+  opacity: 100%;
+  font-family: 'Raleway', sans-serif;
+  letter-spacing: 1.1px;
+  padding: 12px 35px;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 10px;
+  
+
+}
+
+
+.button:hover {
+  background-color: black;
+  color: white;
+  transition-delay: 1.5ms;
+  cursor: pointer;
+  font-weight: 800;
+  transform: scale(1.25);
+
+}
+
+.btn-group button {
+  background-color: #04AA6D; 
+  border: 1px solid green; 
+  color: white; 
+ 
+  padding: 7px 35px; 
+  cursor: pointer;
+  float: left; 
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  
+  clear: both;
+  display: table;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #3e8e41;
+}
+
+.btn-group{
+  display: flex;
+  width: 10px;
+}
+
+/* hover list button */
+
+/* Dropdown Button */
+.dropbtn {
+  
+ background-color: black;
+ color: white;
+ font-weight: 600;
+ font-size: 14px;
+ margin-left: 10px;
+ margin-right: 10px;
+ text-transform: uppercase;
+ 
+
+ 
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  height: 20px;
+  margin-top: -3px;
+  font-family: 'Raleway', sans-serif;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 6px 8px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+
+/* .dropdown-content a:hover {background-color: #ddd;} */
+
+/* Show the dropdown menu on hover */
+
+.dropdown:hover .dropdown-content {display: block;}
+
+
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+
+.dropdown:hover .dropbtn {background-color: #4f3e8e;}
+
+/* hover nav */
+.dropdown-content a:hover {
+  color: rgba(133, 25, 209, 0.87);
+  transition-delay: 0.5ms;
+  cursor: pointer;
+  font-weight: bold;
+  transform: scale(1.25);
+}

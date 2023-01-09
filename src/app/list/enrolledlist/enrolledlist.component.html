@@ -1,0 +1,66 @@
+<html>
+  <nav class="navigation">
+    <div class="container">
+      <ul class="nav">
+  
+        <!-- <li routerLink="/universityhomepage" routerLinkActive="active"> Home</li> -->
+        <li onclick="history.back()">back</li>
+        <!-- <div class="dropdown">
+          <button class="dropbtn">Explore</button>
+          <div class="dropdown-content">
+            <a routerLink="/courselist"  routerLinkActive="active">All Courses</a>
+          </div>
+        </div> -->
+        <!-- <li>Profile</li> -->
+        <!-- <li routerLink="/welcome" routerLinkActive="active">Logout</li> -->
+      </ul>
+    </div>
+  </nav>
+ 
+  <body>
+    
+    
+    <div class="row">
+      <h2>ENROLLED STUDENTS LIST</h2>
+    </div>
+    <div *ngIf="students == null">
+      <h3>NO STUDENTS ENROLLED</h3>
+    </div>
+    
+  <div *ngIf="students!=null">
+
+  
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Student Name </th>
+          <th>Student Gender</th>
+          <th>Passport Number</th>
+          <th>Student Age</th>
+          <th>GRE Score</th>
+          <th>IELTS Score</th>
+          <th>CGPA Score</th>
+
+      
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr *ngFor="let student of students">
+        <td>{{student.firstName}}</td>
+          <td>{{student.gender}}</td>
+          <td>{{student.passportNo}}</td>
+          <td>{{student.age}}</td>
+          <td>{{student.greScore}}</td>
+          <td>{{student.ieltsScore}}</td>
+          <td>{{student.cgpa}}</td>
+        
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+  
+  </body>
+</html>
+

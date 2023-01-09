@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+
+  <form [formGroup]="students" (submit)="onSubmit()">
+    <div class="container">
+      <h1>Sign Up</h1>
+      <p>Please fill in this form to create an account.</p>
+      <hr>
+
+      <label for="firstName"><b>Firstname</b></label>
+      <input type="text" (keypress)="OnlyLettersAllowed($event)"  placeholder="Enter firstname" name="firstname" id="firstName" required
+        formControlName="firstName">
+
+        <div  *ngIf="students.controls['firstName'].invalid && (students.controls['firstName'].dirty || students.controls['firstName'].touched)" class="alert">
+          <div *ngIf="students.controls['firstName'].errors" style="color: red;">
+          *Please Enter Your First Name 
+        </div>
+      </div>
+
+      <label for="lastName"><b>Lastname</b></label>
+      <input type="text" (keypress)="OnlyLettersAllowed($event)" placeholder="Enter lastname" name="lastName" id="lastName" required 
+      formControlName="lastName">
+
+      <div  *ngIf="students.controls['lastName'].invalid && (students.controls['lastName'].dirty || students.controls['lastName'].touched)" class="alert">
+        <div *ngIf="students.controls['lastName'].errors" style="color: red;">
+        *Please Enter Your Last Name 
+      </div>
+    </div>
+
+      <label for="aadhaarno"><b>Aadhaar Number</b></label>
+      <input type="number" (keypress)="OnlyNumbersAllowed($event)" pattern="([0-9]{12})" placeholder="Enter Aadhaar Number" name="aadhaarNo" id="aadhaarNo" required
+        formControlName="aadhaarNo">
+
+        <div  *ngIf="students.controls['aadhaarNo'].invalid && (students.controls['aadhaarNo'].dirty || students.controls['aadhaarNo'].touched)" class="alert">
+          <div *ngIf="students.controls['aadhaarNo'].errors" style="color: red;">
+          *Please Enter Your 12 Digit Aadhaar Number
+          </div>
+        </div>
+
+      <label for="age"><b>Age</b></label>
+      <input type="number" (keypress)="OnlyNumbersAllowed($event)" pattern="([0-9]{2})" placeholder="Enter Age" name="age" id="age" required formControlName="age">
+
+      <div  *ngIf="students.controls['age'].invalid && (students.controls['age'].dirty || students.controls['age'].touched)" class="alert">
+        <div *ngIf="students.controls['age'].errors" style="color: red;">
+        *Please Enter Your Age
+        </div>
+      </div>
+
+      <div class="gender">
+
+        <h6 class="gender"><b>Gender</b></h6>
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="gender" id="femaleGender" value="FEMALE"
+            checked formControlName="gender"/>
+          <label class="form-check-label">FEMALE</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="gender" id="MALE" value="MALE"
+          formControlName="gender"/>
+          <label class="form-check-label">MALE</label>
+        </div>
+        
+      </div>
+      
+
+      <label for="cgpa"><b>CGPA</b></label>
+      <input type="number" (keypress)="OnlyNumbersAllowed2($event)" pattern="([0-9]^([+-]?\\d*\\.?\\d*)${0,2})" placeholder="Current cgpa" name="cgpa" id="cgpa" required formControlName="cgpa">
+
+      <div  *ngIf="students.controls['cgpa'].invalid && (students.controls['cgpa'].dirty || students.controls['cgpa'].touched)" class="alert">
+        <div *ngIf="students.controls['cgpa'].errors" style="color: red;">
+          *Please Enter Your  Cgpa between 0-10
+        </div>
+      </div>
+
+      <label for="gre"><b>GRE Score</b></label>
+      <input type="number" (keypress)="OnlyNumbersAllowed2($event)" pattern="([0-9]{0,3})" placeholder="Gre Score" name="greScore" id="greScore" formControlName="greScore">
+
+      <div  *ngIf="students.controls['greScore'].invalid && (students.controls['greScore'].dirty || students.controls['greScore'].touched)" class="alert">
+        <div *ngIf="students.controls['greScore'].errors" style="color: red;">
+          *Please Enter Your Required Gre Score between 0-360
+        </div>
+      </div>
+
+      <label for="ieltsScore"><b>IELTS Score</b></label>
+      <input type="number" (keypress)="OnlyNumbersAllowed2($event)" pattern="([0-9]^([+-]?\\d*\\.?\\d*)${0,2})" placeholder="Ielts score" name="ieltsScore" id="ieltsScore"
+        formControlName="ieltsScore"><br />
+
+        <div  *ngIf="students.controls['ieltsScore'].invalid && (students.controls['ieltsScore'].dirty || students.controls['ieltsScore'].touched)" class="alert">
+          <div *ngIf="students.controls['ieltsScore'].errors" style="color: red;">
+            *Please Enter Your Required Ielts Score between 0-9
+          </div>
+        </div>
+
+      <label for="passportno"><b>Passport Number</b></label>
+      <input type="text" pattern="^(?=.*[a-zA-Z])(?=.*[0-9])[A-Za-z0-9]+$" placeholder="ex.TT0001" name="passportNo" id="passportNo" required
+        formControlName="passportNo">
+
+        <div  *ngIf="students.controls['passportNo'].invalid && (students.controls['passportNo'].dirty || students.controls['passportNo'].touched)" class="alert">
+          <div *ngIf="students.controls['passportNo'].errors" style="color: red;">
+            *Please Enter Your Passport Number
+          </div>
+        </div>
+
+      <label for="specialization"><b>Specialization</b></label>
+      <input type="text" placeholder="Enter specialization" name="specialization" id="specialization" required
+        formControlName="specialization">
+  
+      <div  *ngIf="students.controls['specialization'].invalid && (students.controls['specialization'].dirty || students.controls['specialization'].touched)" class="alert">
+        <div *ngIf="students.controls['specialization'].errors" style="color: red;">
+        *Please Enter Your Specialization
+        </div>
+      </div>
+
+
+        <div class="degreedd">
+
+           <h6 class="degree" ><b>Degree</b></h6>
+  
+           <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="degree" id="BTECH" value="BTECH"
+              checked formControlName="degree" />
+            <label class="form-check-label" style="margin-left: 5px;">BTECH</label>
+             </div>
+  
+            <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="degree" id="BE" value="BE"
+            formControlName="degree"/>
+            <label class="form-check-label" style="margin-left: 5px;">BE</label>
+             </div>
+         
+
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="degree" id="BSC" value="BSC"
+            formControlName="degree"/>
+            <label class="form-check-label" style="margin-left: 5px;">BSC</label>
+          </div>
+        </div>
+
+        <div  *ngIf="students.controls['degree'].invalid && (students.controls['degree'].dirty || students.controls['degree'].touched)" class="alert">
+          <div *ngIf="students.controls['degree'].errors" style="color: red;">
+          *Please Select Your Degree
+          </div>
+        </div>
+
+
+      <label for="emailid"><b>Email</b></label>
+      <input type="email" placeholder="Enter Email" name="emailId" id="emailId" required formControlName="emailId">
+
+
+      <div  *ngIf="students.controls['emailId'].invalid && (students.controls['emailId'].dirty || students.controls['emailId'].touched)" class="alert">
+        <div *ngIf="students.controls['emailId'].errors" style="color: red;">
+        *Please Enter Your Email Id
+        </div>
+      </div>
+
+
+      <label for="pswd"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password" id="password" required
+        formControlName="password">
+
+        <div  *ngIf="students.controls['password'].invalid && (students.controls['password'].dirty || students.controls['password'].touched)" class="alert">
+          <div *ngIf="students.controls['password'].errors" style="color: red;">
+          *Please Enter Your Password
+          </div>
+        </div>
+
+
+      <button type="submit" class="registerbtn"[disabled]="students.invalid">Register</button>
+    </div>
+
+    <div class="container signin">
+      <p>Already have an account? <a routerLink="/student">Sign in</a>.</p>
+    </div>
+  </form>
+
+</body>
+
+</html>
