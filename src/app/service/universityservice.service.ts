@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Course } from '../Course';
 import { Student } from '../Student';
@@ -16,7 +17,7 @@ export class UniversityserviceService {
   private baseurl = 'http://localhost:8080/university/';
 
 
-  constructor(private httpClient : HttpClient) { }
+  constructor(private httpClient : HttpClient , private cookie:CookieService) { }
 
   // create university
   addUniversity(university:University):Observable<Object>{
@@ -67,4 +68,7 @@ export class UniversityserviceService {
   getUniversityById(instituteCode: number): Observable<University>{
     return this.httpClient.get<University>(`${this.baseurl}`+'universityprofile/'+`${instituteCode}`);
   }
+  isloggedIn(){
+    return !!this.cookie.get('instituteCode');  
+   }
 }
