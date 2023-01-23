@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Course, DegreeType } from '../Course';
 import { Enroll } from '../Enroll';
@@ -22,7 +23,7 @@ export class StudentserviceService {
   private baseurl = 'http://localhost:8080/student/';
 
 
-  constructor(private httpClient : HttpClient) { }
+  constructor(private httpClient : HttpClient, private cookie:CookieService) { }
 
   // create student
   addStudent(student:Student):Observable<Object>{
@@ -107,7 +108,9 @@ export class StudentserviceService {
     return this.httpClient.get<Student>(`${this.baseurl}`+'studentprofile/'+`${aadhaarNo}`);
   }
 
-
+  isloggedIn(){
+    return !!this.cookie.get('aadhaarNo');  
+   }
   
 }
 

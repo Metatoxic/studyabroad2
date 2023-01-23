@@ -1,4 +1,4 @@
- import { NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { WelcomeComponent } from './welcome/welcome.component';
@@ -21,57 +21,37 @@ import { CoursedegreetypeComponent } from './filter/coursedegreetype/coursedegre
 import { EnrolleddetailsComponent } from './list/enrolleddetails/enrolleddetails.component';
 import { StarlistComponent } from './list/starlist/starlist.component';
 import { UniversityguardGuard } from './guard/universityguard.guard';
+import { StudentguardGuard } from './guard/studentguard.guard';
 
 
 const routes: Routes = [
-  // {path : '',component : WelcomeComponent},
-  // {path : 'welcome',component : WelcomeComponent},
-
-  // {path : 'university',component : UniversityComponent},
-  // {path : 'student',component : StudentComponent},
-  // {path : 'studentsignup',component : StudentsignupComponent},
-  // {path : 'universitysignup',component :UniversitysignupComponent},
-  // {path : 'studenthomepage',component :StudenthomepageComponent},
-  // {path : 'universityhomepage',component : UniversityhomepageComponent},
-  // {path : 'universitylist',component : UniversitylistComponent},
-  // {path : 'degreetypefilter/:degreeType',component : DegreetypeComponent},
-  // {path : 'courselist',component :CourselistComponent },
-  // {path : 'coursesignup',component : CoursesignupComponent},
-  // {path : 'studentprofile',component : StudentprofileComponent},
-  // {path : 'universityprofile',component :UniversityprofileComponent},
-  // {path : 'enrolledlist/:instituteCode',component : EnrolledlistComponent},
-  // {path : 'universitycourselist/:instituteCode',component : UniversitycourselistComponent},
-  // {path : 'universitycourselist2/:instituteCode',component : Universitycourselist2Component},
-  // {path : 'coursedegreetype/:instituteCode/:degreeType',component : CoursedegreetypeComponent},
-  // {path : 'enrolleddetails/:aadhaarNo', component : EnrolleddetailsComponent},
-  // {path : 'starlist/:aadhaarNo', component : StarlistComponent},
-
-  {path : '',component : WelcomeComponent},
-  {path : 'welcome',component : WelcomeComponent},
+  { path: '', component: WelcomeComponent },
+  { path: 'welcome', component: WelcomeComponent },
 
   // University 
 
-  {path : 'university',component : UniversityComponent , canActivate:[UniversityguardGuard]},
-  {path : 'universitysignup',component :UniversitysignupComponent , canActivate:[UniversityguardGuard]},
-  {path : 'universityhomepage',component : UniversityhomepageComponent , canActivate:[UniversityguardGuard]},
-  {path : 'courselist',component :CourselistComponent, canActivate:[UniversityguardGuard] },
-  {path : 'coursesignup',component : CoursesignupComponent , canActivate:[UniversityguardGuard]},
-  {path : 'universityprofile',component :UniversityprofileComponent , canActivate:[UniversityguardGuard]},
-  {path : 'enrolledlist/:instituteCode',component : EnrolledlistComponent , canActivate:[UniversityguardGuard]},
+  { path: 'university', component: UniversityComponent },
+  { path: 'universitysignup', component: UniversitysignupComponent, canActivate: [UniversityguardGuard] },
+  { path: 'universityhomepage', component: UniversityhomepageComponent, canActivate: [UniversityguardGuard] },
  
-  
+  { path: 'coursesignup', component: CoursesignupComponent, canActivate: [UniversityguardGuard] },
+  { path: 'universityprofile', component: UniversityprofileComponent, canActivate: [UniversityguardGuard] },
+  { path: 'enrolledlist/:instituteCode', component: EnrolledlistComponent, canActivate: [UniversityguardGuard] },
+  { path: 'universitycourselist/:instituteCode', component: UniversitycourselistComponent, canActivate: [UniversityguardGuard] },
+
   // student 
-  {path : 'student',component : StudentComponent},
-  {path : 'studentsignup',component : StudentsignupComponent},
-  {path : 'studenthomepage',component :StudenthomepageComponent},
-  {path : 'studentprofile',component : StudentprofileComponent},
-  {path : 'enrolleddetails/:aadhaarNo', component : EnrolleddetailsComponent},
-  {path : 'starlist/:aadhaarNo', component : StarlistComponent}, 
-  {path : 'universitylist',component : UniversitylistComponent},
-  {path : 'degreetypefilter/:degreeType',component : DegreetypeComponent},
-  {path : 'universitycourselist/:instituteCode',component : UniversitycourselistComponent},
-  {path : 'universitycourselist2/:instituteCode',component : Universitycourselist2Component},
-  {path : 'coursedegreetype/:instituteCode/:degreeType',component : CoursedegreetypeComponent},
+  { path: 'student', component: StudentComponent },
+  { path: 'studentsignup', component: StudentsignupComponent, canActivate: [StudentguardGuard] },
+  { path: 'studenthomepage', component: StudenthomepageComponent, canActivate: [StudentguardGuard] },
+  { path: 'studentprofile', component: StudentprofileComponent, canActivate: [StudentguardGuard] },
+  { path: 'enrolleddetails/:aadhaarNo', component: EnrolleddetailsComponent, canActivate: [StudentguardGuard] },
+  { path: 'starlist/:aadhaarNo', component: StarlistComponent, canActivate: [StudentguardGuard] },
+  { path: 'universitylist', component: UniversitylistComponent, canActivate: [StudentguardGuard] },
+  { path: 'degreetypefilter/:degreeType', component: DegreetypeComponent, canActivate: [StudentguardGuard] },
+
+  { path: 'universitycourselist2/:instituteCode', component: Universitycourselist2Component, canActivate: [StudentguardGuard] },
+  { path: 'coursedegreetype/:instituteCode/:degreeType', component: CoursedegreetypeComponent, canActivate: [StudentguardGuard] },
+  { path: 'courselist', component: CourselistComponent, canActivate: [StudentguardGuard] },
 ];
 
 @NgModule({
